@@ -2,6 +2,7 @@ package com.example.mysrib_cursor
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
+        supportActionBar?.apply {
+            title = "My SRIB"
+            setDisplayShowTitleEnabled(true)
+        }
 
         binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -46,9 +51,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_refresh -> {
+                // Handle refresh action
+                true
+            }
+            R.id.action_feedback -> {
+                // Handle feedback action
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
