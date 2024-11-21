@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
         supportActionBar?.apply {
-            title = "My SRIB"
+                title = "My SRIB"
             setDisplayShowTitleEnabled(true)
         }
 

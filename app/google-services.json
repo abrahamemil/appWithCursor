@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "100063855772",
+    "project_id": "mysrib-cursor",
+    "storage_bucket": "mysrib-cursor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100063855772:android:781e76166f57c50dc35959",
+        "android_client_info": {
+          "package_name": "com.example.mysrib_cursor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiRVHfiQJ3ySjCWs4P8Jm4QxAhCP35OV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
