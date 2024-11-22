@@ -23,16 +23,16 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val items = listOf(
-            CardItem("Daily Declaration", "", R.drawable.gradient_daily_declarations, R.drawable.ic_profile),
-            CardItem("Hybrid Scheduler", "Non Compliance :0\nPending: 0", R.drawable.gradient_hybrid_scheduler, R.drawable.ic_profile),
-            CardItem("Leave Details", "1 Unresolved\nAvailable: 67\nAvailed: 8", R.drawable.gradient_daily_declarations, R.drawable.ic_profile),
-            CardItem("Life@SRIB", "SRIB latest news,\nevents & other activities", R.drawable.gradient_hybrid_scheduler, R.drawable.ic_profile),
-            CardItem("Meal Info", "Rs. 6090.75\nRefilled On: 31 Oct\nLast Spend: Rs. 105\n@SRI-B-JJ-TEA", R.drawable.gradient_daily_declarations, R.drawable.ic_profile),
-            CardItem("Talk to Amber", "Our Employee Engagement\nBOT to build a better\nwork environment", R.drawable.gradient_hybrid_scheduler, R.drawable.ic_profile),
-            CardItem("Health", "Doctor schedule,\ninsurance, network\nhospitals, Employee\nAssistance Program", R.drawable.gradient_daily_declarations, R.drawable.ic_profile),
-            CardItem("Cab Booking", "Book Adhoc, Late Night\nCab (8pm to 8am) on\nworking days &\nWeekend/Holiday on\nnon-working days.", R.drawable.gradient_cab, R.drawable.ic_profile),
-            CardItem("Not Registered", "View the available bus routes\nby searching for your area.", R.drawable.gradient_daily_declarations, R.drawable.ic_profile),
-            CardItem("IT Tips", "Multi-GPU with Multi\nNode in SPACE platform", R.drawable.gradient_hybrid_scheduler, R.drawable.ic_profile),
+            CardItem("Daily Declaration", "", R.drawable.gradient_daily_declarations, R.drawable.ic_declaration),
+            CardItem("Hybrid Scheduler", "Non Compliance :0\nPending: 0", R.drawable.gradient_hybrid_scheduler, R.drawable.ic_hybrid),
+            CardItem("Leave Details", "1 Unresolved\nAvailable: 67\nAvailed: 8", R.drawable.gradient_leave_info, R.drawable.ic_leave),
+            CardItem("Life@SRIB", "SRIB latest news,\nevents & other activities", R.drawable.gradient_life_at_srib, R.drawable.ic_lifesrib),
+            CardItem("Meal Info", "Rs. 6090.75\nRefilled On: 31 Oct\nLast Spend: Rs. 105\n@SRI-B-JJ-TEA", R.drawable.gradient_meal_info, R.drawable.ic_meal),
+            CardItem("Talk to Amber", "Our Employee Engagement\nBOT to build a better\nwork environment", R.drawable.gradient_talk_to_amber, R.drawable.ic_amber),
+            CardItem("Health", "Doctor schedule,\ninsurance, network\nhospitals, Employee\nAssistance Program", R.drawable.gradient_health_info, R.drawable.ic_health),
+            CardItem("Cab Booking", "Book Adhoc, Late Night\nCab (8pm to 8am) on\nworking days &\nWeekend/Holiday on\nnon-working days.", R.drawable.gradient_cab, R.drawable.ic_cab),
+            CardItem("Not Registered", "View the available bus routes\nby searching for your area.", R.drawable.gradient_bus, R.drawable.ic_bus),
+            CardItem("IT Tips", "Multi-GPU with Multi\nNode in SPACE platform", R.drawable.gradient_it_guide, R.drawable.ic_it_guide),
         )
 
         val recyclerView = binding.recyclerView

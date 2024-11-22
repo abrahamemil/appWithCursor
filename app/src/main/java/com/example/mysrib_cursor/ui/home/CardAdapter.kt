@@ -53,9 +53,9 @@ class CardAdapter(private val items: List<CardItem>) : RecyclerView.Adapter<Recy
             }
         } else if (holder is HorizontalListViewHolder) {
             if (holder.binding.horizontalRecyclerView.adapter == null) {
-                val horizontalItems = listOf(            CardItem("IT Tips", "Multi-GPU with Multi\nNode in SPACE platform", R.drawable.gradient_hybrid_scheduler, R.drawable.ic_profile),
-                    CardItem("IT Tips", "Xbox Game Box", R.drawable.gradient_daily_declarations, R.drawable.ic_profile),
-                    CardItem("IT Tips", "Sharing directories.", R.drawable.gradient_hybrid_scheduler, R.drawable.ic_profile)
+                val horizontalItems = listOf(            CardItem("IT Tips", "Multi-GPU with Multi\nNode in SPACE platform", R.drawable.gradient_it_guide, R.drawable.ic_it_guide),
+                    CardItem("IT Tips", "Xbox Game Box", R.drawable.gradient_it_guide, R.drawable.ic_it_guide),
+                    CardItem("IT Tips", "Sharing directories.", R.drawable.gradient_it_guide, R.drawable.ic_it_guide)
                 )
                 val horizontalAdapter = ITTipsAdapter(horizontalItems)
                 holder.binding.horizontalRecyclerView.layoutManager = LinearLayoutManager(holder.binding.root.context, LinearLayoutManager.HORIZONTAL, false)

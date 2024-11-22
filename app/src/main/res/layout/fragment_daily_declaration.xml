@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:padding="16dp">
 
     <LinearLayout
@@ -11,10 +12,13 @@
 
         <!-- Header Image -->
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
             android:src="@drawable/ic_declaration_header"
-            android:contentDescription="@string/daily_declaration_header" />
+            android:contentDescription="@string/daily_declaration_header"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="16dp" />
 
         <!-- User Info -->
         <TextView
@@ -27,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15840145" />
+            android:text="15540185" />
 
         <!-- Contact Info -->
         <TextView
@@ -38,9 +42,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Emergency Contact: 8921983482" />
+            android:text="Emergency Contact: 8928987442" />
 
-        <!-- Questions -->
+        <!-- Question 1 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,14 +66,288 @@
                 android:text="No" />
         </RadioGroup>
 
-        <!-- More questions and inputs as needed -->
+        <!-- Question 2 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Have you or anyone in your household have any symptoms like fever, cough &amp; cold, headache, fever, sore throat and also tested positive for COVID in last 3 days?" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_yes_symptoms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes (Use your discretion to come to office)" />
+            <RadioButton
+                android:id="@+id/radio_no_symptoms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No" />
+        </RadioGroup>
+
+        <!-- Question 3 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Work Status" />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_wfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WFO" />
+
+            <RadioButton
+                android:id="@+id/radio_wfh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WFH" />
+
+            <RadioButton
+                android:id="@+id/radio_full_day_leave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Day Leave/FH" />
+
+            <RadioButton
+                android:id="@+id/radio_half_day_leave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Half Day Leave" />
+
+            <RadioButton
+                android:id="@+id/radio_business_travel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Business Travel" />
+        </RadioGroup>
+
+        <!-- Weekly Work Plan -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. My Plan for next week"
+            android:layout_marginTop="8dp" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2,3,4"
+            android:padding="8dp"
+            android:background="@android:color/darker_gray">
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Days  "
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" WFO"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WFH"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LEAVE/FH"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BIZ TRAVEL"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1"
+            android:padding="8dp"
+            android:background="@android:color/darker_gray">
+            <!-- Monday -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25 NOV" />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radio_wfo_25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_wfh_25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_leave_25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_biz_25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RadioGroup>
+            </TableRow>
+
+            <!-- Tuesday -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="26 NOV" />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radio_wfo_26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_wfh_26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_leave_26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_biz_26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RadioGroup>
+            </TableRow>
+
+            <!-- Wednesday -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="27 NOV" />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radio_wfo_27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_wfh_27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_leave_27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_biz_27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RadioGroup>
+            </TableRow>
+
+            <!-- Thursday -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="28 NOV" />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radio_wfo_28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_wfh_28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_leave_28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_biz_28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RadioGroup>
+            </TableRow>
+
+            <!-- Friday -->
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="29 NOV" />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radio_wfo_29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_wfh_29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_leave_29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/radio_biz_29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RadioGroup>
+            </TableRow>
+
+        </TableLayout>
+
+        <!-- Note Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Note: \n1. Leave days, Business travel days and 'WFO days' (all together) of a week should be three days or more as per SRI-B Hybrid work policy.\n2. Kindly apply leave (from MySRI-B app or Web portal) if you have planned for a leave next week.\n3. Weekly Plan Submission: Wednesday ~ Thursday submission will be considered as final input. Kindly review the same before submitting. Friday onwards only RM can change next week plan (if required) in the RM Hybrid Work Scheduler (Roster)."
+            android:textColor="@android:color/holo_red_dark"
+            android:padding="8dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="16dp" />
+
+        <!-- Declaration Checkbox -->
+        <CheckBox
+            android:id="@+id/declaration_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I Emil Abraham hereby declare that the information furnished above is true and correct to the best of my knowledge and belief."
+            android:layout_marginTop="16dp" />
 
         <!-- Submit Button -->
         <Button
             android:id="@+id/submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:text="Submit"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 </ScrollView> 
