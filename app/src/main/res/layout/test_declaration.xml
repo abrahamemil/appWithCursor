@@ -42,184 +42,8 @@
         </LinearLayout>
 
         <!-- User Information Section -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Emil Abraham"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/darker_gray" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="15840145"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gen ID"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/darker_gray" />
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
         <!-- Date Picker and Contact Info Section -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Date Picker -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingBottom="8dp">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_calendar" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Select Date"
-                            android:textSize="14sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/dateTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="13/11/2024"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Contact Info -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingBottom="8dp">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_contact" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Contact No"
-                            android:textSize="14sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="7406222216"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Emergency Contact Info -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_contact" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Emergency Contact"
-                            android:textSize="14sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="8921983482"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
         <!-- Question section\Main form section -->
         <androidx.cardview.widget.CardView
@@ -342,16 +166,14 @@
                         android:layout_marginStart="185dp"
                         android:text="Half Day Leave" />
                 </RadioGroup>
-
                 <!-- Flexi Holiday -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="188dp"
                     android:layout_marginTop="-25dp"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:textColor="@android:color/holo_blue_bright"
                     android:text="*FH->Flexi Holiday" />
-
                 <!-- Horizontal Line -->
                 <View
                     android:layout_width="match_parent"

@@ -1,21 +1,25 @@
 package com.example.mysrib_cursor.ui.home
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mysrib_cursor.databinding.FragmentDailyDeclarationBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.util.Calendar
 
 class DailyDeclarationFragment : Fragment() {
 
     private var _binding: FragmentDailyDeclarationBinding? = null
     private val binding get() = _binding!!
     private lateinit var database: DatabaseReference
+    private lateinit var dateTextView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +32,12 @@ class DailyDeclarationFragment : Fragment() {
         // Initialize Firebase Database
         database = FirebaseDatabase.getInstance().reference
 
+        dateTextView = binding.dateTextView // Assuming you have a TextView for the date
+
+        dateTextView.setOnClickListener {
+            showDatePicker()
+        }
+
         val submitButton: Button = binding.submitButton
         submitButton.setOnClickListener {
             if (validateForm()) {
@@ -38,6 +48,25 @@ class DailyDeclarationFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun showDatePicker() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
+            val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+            dateTextView.text = selectedDate
+        }, year, month, day)
+
+        // Set the date picker to only allow past days in the current week
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
+        datePickerDialog.datePicker.minDate = calendar.timeInMillis
+
+        datePickerDialog.show()
     }
 
     private fun uploadFormData() {
