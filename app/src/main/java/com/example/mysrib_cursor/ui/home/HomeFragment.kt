@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
 
         val items = listOf(
             CardItem("Holidays", "", R.drawable.gradient_bus, R.drawable.gradient_bus),
+            CardItem("News", "", R.drawable.gradient_bus, R.drawable.gradient_bus),
             CardItem("Daily Declaration", "", R.drawable.gradient_daily_declarations, R.drawable.ic_declaration),
             CardItem("Hybrid Scheduler", "Non Compliance :0\nPending: 0", R.drawable.gradient_hybrid_scheduler, R.drawable.ic_hybrid),
             CardItem("Leave Details", "1 Unresolved\nAvailable: 67\nAvailed: 8", R.drawable.gradient_leave_info, R.drawable.ic_leave),
