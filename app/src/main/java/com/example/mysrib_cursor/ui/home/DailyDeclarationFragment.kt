@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.mysrib_cursor.R
 import com.example.mysrib_cursor.databinding.FragmentDailyDeclarationBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -32,7 +34,7 @@ class DailyDeclarationFragment : Fragment() {
         // Initialize Firebase Database
         database = FirebaseDatabase.getInstance().reference
 
-        dateTextView = binding.dateTextView // Assuming you have a TextView for the date
+        dateTextView = binding.dateTextView
 
         dateTextView.setOnClickListener {
             showDatePicker()
@@ -61,7 +63,6 @@ class DailyDeclarationFragment : Fragment() {
             dateTextView.text = selectedDate
         }, year, month, day)
 
-        // Set the date picker to only allow past days in the current week
         datePickerDialog.datePicker.maxDate = calendar.timeInMillis
         calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
         datePickerDialog.datePicker.minDate = calendar.timeInMillis
@@ -81,32 +82,43 @@ class DailyDeclarationFragment : Fragment() {
             else -> "Not Specified"
         }
 
+        val weeklyPlan = mapOf(
+            "Monday" to getDayPlan(binding.rgDay1),
+            "Tuesday" to getDayPlan(binding.rgDay2),
+            "Wednesday" to getDayPlan(binding.rgDay3),
+            "Thursday" to getDayPlan(binding.rgDay4),
+            "Friday" to getDayPlan(binding.rgDay5)
+        )
+
         val formData = mapOf(
-            "name" to binding.name.text.toString(),
+            "name" to binding.userName.text.toString(),
             "genId" to "15640185",
             "isInBangalore" to isInBangalore,
             "haveAnySymptoms" to haveAnySymptoms,
-            "workStatus" to workStatus
-            // Add additional fields as needed
+            "workStatus" to workStatus,
+            "weeklyPlan" to weeklyPlan
         )
 
         database.child("declarations").push().setValue(formData)
             .addOnSuccessListener {
-                Toast.makeText(context, "Form submitted successfully!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Form submitted successfully!", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
-                Toast.makeText(context, "Failed to submit form.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Failed to submit form.", Toast.LENGTH_SHORT).show()
             }
     }
 
-    private fun validateForm(): Boolean {
-        // Validate name
-        if (binding.name.text.toString().trim().isEmpty()) {
-            binding.name.error = "Name is required"
-            binding.name.requestFocus()
-            return false
+    private fun getDayPlan(radioGroup: RadioGroup): String {
+        return when (radioGroup.checkedRadioButtonId) {
+            R.id.rb_wfo_day1, R.id.rb_wfo_day2, R.id.rb_wfo_day3, R.id.rb_wfo_day4, R.id.rb_wfo_day5 -> "WFO"
+            R.id.rb_wfh_day1, R.id.rb_wfh_day2, R.id.rb_wfh_day3, R.id.rb_wfh_day4, R.id.rb_wfh_day5 -> "WFH"
+            R.id.rb_leave_day1, R.id.rb_leave_day2, R.id.rb_leave_day3, R.id.rb_leave_day4, R.id.rb_leave_day5 -> "Leave/FH"
+            R.id.rb_biz_day1, R.id.rb_biz_day2, R.id.rb_biz_day3, R.id.rb_biz_day4, R.id.rb_biz_day5 -> "Business Travel"
+            else -> "Not Specified"
         }
+    }
 
+    private fun validateForm(): Boolean {
         // Validate Bangalore status
         if (!binding.radioYesBangalore.isChecked && !binding.radioNoBangalore.isChecked) {
             Toast.makeText(context, "Please select if you are in Bangalore", Toast.LENGTH_SHORT).show()
@@ -129,16 +141,23 @@ class DailyDeclarationFragment : Fragment() {
             return false
         }
 
-        // Validate Nov 25 status
-        if (!binding.radioWfo25.isChecked && 
-            !binding.radioWfh25.isChecked && 
-            !binding.radioLeave25.isChecked && 
-            !binding.radioBiz25.isChecked) {
-            Toast.makeText(context, "Please select status for Nov 25", Toast.LENGTH_SHORT).show()
+        // Validate contact number
+        if (binding.contactNo.text.isNullOrEmpty()) {
+            Toast.makeText(context, "Please enter your contact number", Toast.LENGTH_SHORT).show()
             return false
         }
 
-        // Validate other days similarly...
+        // Validate emergency contact number
+        if (binding.emergencyContact.text.isNullOrEmpty()) {
+            Toast.makeText(context, "Please enter your emergency contact number", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        // Validate weekly plan
+        if (!isWeeklyPlanValid()) {
+            Toast.makeText(context, "Please complete your weekly plan", Toast.LENGTH_SHORT).show()
+            return false
+        }
 
         // Validate declaration checkbox
         if (!binding.declarationCheckbox.isChecked) {
@@ -147,6 +166,15 @@ class DailyDeclarationFragment : Fragment() {
         }
 
         return true
+    }
+
+    private fun isWeeklyPlanValid(): Boolean {
+        // Check if at least one radio button is selected for each day
+        return binding.rgDay1.checkedRadioButtonId != -1 &&
+               binding.rgDay2.checkedRadioButtonId != -1 &&
+               binding.rgDay3.checkedRadioButtonId != -1 &&
+               binding.rgDay4.checkedRadioButtonId != -1 &&
+               binding.rgDay5.checkedRadioButtonId != -1
     }
 
     override fun onDestroyView() {

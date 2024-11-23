@@ -9,14 +9,17 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/toolbar_gradient">
+        android:background="@drawable/toolbar_gradient"
+        android:theme="@style/Theme.MySRIB_Cursor.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_marginTop="25dp"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:titleTextColor="@android:color/white"
+            app:navigationIconTint="@android:color/white"
+            app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
