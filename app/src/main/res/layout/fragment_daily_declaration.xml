@@ -752,7 +752,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="I Emil Abraham hereby declare that the information furnished above is true and correct to the best of my knowledge and belief." />
+                    android:text="I Curson AI hereby declare that the information furnished above is true and correct to the best of my knowledge and belief." />
 
                 <!-- Submit Button -->
                 <Button

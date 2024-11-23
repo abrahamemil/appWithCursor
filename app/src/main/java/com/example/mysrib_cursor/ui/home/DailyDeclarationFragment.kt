@@ -199,6 +199,7 @@ private fun uploadFormData() {
                 .show()
 //            binding.llDaily.setBackgroundColor(resources.getColor(R.color.samsung_blue))
             populateFieldsFromViewModel()
+            binding.root.smoothScrollTo(0,0)
         }
         .addOnFailureListener {
             Toast.makeText(requireContext(), "Failed to submit form.", Toast.LENGTH_SHORT).show()

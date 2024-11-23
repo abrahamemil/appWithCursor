@@ -43,9 +43,11 @@
 
         <ImageView
             android:id="@+id/card_image"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:src="@drawable/ic_profile"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerInside"
             android:contentDescription="Card Image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

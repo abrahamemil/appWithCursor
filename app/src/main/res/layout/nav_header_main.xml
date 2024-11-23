@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:padding="4dp"
             android:layout_gravity="center"
-            android:text="Emil Abraham"
+            android:text="Cursor AI"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@android:color/white" />
 
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:padding="4dp"
             android:layout_gravity="center"
-            android:text="emil.abraham@samsung.com"
+            android:text="cursor.ai@samsung.com"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@android:color/white" />
     </LinearLayout>

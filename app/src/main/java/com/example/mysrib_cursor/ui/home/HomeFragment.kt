@@ -39,6 +39,14 @@ class HomeFragment : Fragment() {
             CardItem("IT Tips", "Multi-GPU with Multi\nNode in SPACE platform", R.drawable.gradient_it_guide, R.drawable.ic_it_guide)
         )
 
+        if (viewModel.workStatus.isNotEmpty()){
+            items.first { it.title == "Daily Declaration" }.apply {
+                subtitle = "${viewModel.submitDate} \n ${viewModel.submitTime}"
+                background = R.drawable.gradient_cab
+                imageResId = R.drawable.wfo_icon
+            }
+        }
+
         // Updated Holiday list for 2024
         val holidays = listOf(
             Holiday("Republic Day", "26 Jan", "Friday"),

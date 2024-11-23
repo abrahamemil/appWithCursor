@@ -99,6 +99,7 @@ class CardAdapter(private val items: List<CardItem>, private val holidays: List<
                     false
                 )
                 holder.binding.holidayRecyclerView.adapter = HolidayAdapter(holidays)
+                holder.binding.holidayRecyclerView.scrollToPosition(holidays.size - 1)
             }
 
             is NewsViewHolder -> {
@@ -145,7 +146,7 @@ class CardAdapter(private val items: List<CardItem>, private val holidays: List<
 
 data class CardItem(
     val title: String,
-    val subtitle: String,
-    val background: Int,
-    val imageResId: Int
+    var subtitle: String,
+    var background: Int,
+    var imageResId: Int
 )
