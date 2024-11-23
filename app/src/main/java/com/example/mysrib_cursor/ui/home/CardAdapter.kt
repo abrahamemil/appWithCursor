@@ -9,17 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mysrib_cursor.R
 import com.example.mysrib_cursor.databinding.ItemCardBinding
-import com.example.mysrib_cursor.databinding.ItemHorizontalListBinding
+import com.example.mysrib_cursor.databinding.ItemHolidayCardBinding
 
-class CardAdapter(private val items: List<CardItem>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CardAdapter(private val items: List<CardItem>, private val holidays: List<Holiday>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         private const val TYPE_CARD = 0
-        private const val TYPE_HORIZONTAL_LIST = 1
+        private const val TYPE_HOLIDAY = 1
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (position == items.indexOfFirst { it.title == "IT Tips" }) TYPE_HORIZONTAL_LIST else TYPE_CARD
+        return if (position == items.indexOfFirst { it.title == "Holidays" }) TYPE_HOLIDAY else TYPE_CARD
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -27,8 +27,8 @@ class CardAdapter(private val items: List<CardItem>) : RecyclerView.Adapter<Recy
             val binding = ItemCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             CardViewHolder(binding)
         } else {
-            val binding = ItemHorizontalListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            HorizontalListViewHolder(binding)
+            val binding = ItemHolidayCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            HolidayViewHolder(binding)
         }
     }
 
@@ -51,23 +51,16 @@ class CardAdapter(private val items: List<CardItem>) : RecyclerView.Adapter<Recy
                     Toast.makeText(it.context, "${item.title} under construction", Toast.LENGTH_SHORT).show()
                 }
             }
-        } else if (holder is HorizontalListViewHolder) {
-            if (holder.binding.horizontalRecyclerView.adapter == null) {
-                val horizontalItems = listOf(            CardItem("IT Tips", "Multi-GPU with Multi\nNode in SPACE platform", R.drawable.gradient_it_guide, R.drawable.ic_it_guide),
-                    CardItem("IT Tips", "Xbox Game Box", R.drawable.gradient_it_guide, R.drawable.ic_it_guide),
-                    CardItem("IT Tips", "Sharing directories.", R.drawable.gradient_it_guide, R.drawable.ic_it_guide)
-                )
-                val horizontalAdapter = ITTipsAdapter(horizontalItems)
-                holder.binding.horizontalRecyclerView.layoutManager = LinearLayoutManager(holder.binding.root.context, LinearLayoutManager.HORIZONTAL, false)
-                holder.binding.horizontalRecyclerView.adapter = horizontalAdapter
-            }
+        } else if (holder is HolidayViewHolder) {
+            holder.binding.holidayRecyclerView.layoutManager = LinearLayoutManager(holder.binding.root.context, LinearLayoutManager.HORIZONTAL, false)
+            holder.binding.holidayRecyclerView.adapter = HolidayAdapter(holidays)
         }
     }
 
     override fun getItemCount() = items.size
 
     class CardViewHolder(val binding: ItemCardBinding) : RecyclerView.ViewHolder(binding.root)
-    class HorizontalListViewHolder(val binding: ItemHorizontalListBinding) : RecyclerView.ViewHolder(binding.root)
+    class HolidayViewHolder(val binding: ItemHolidayCardBinding) : RecyclerView.ViewHolder(binding.root)
 }
 
 data class CardItem(val title: String, val subtitle: String, val background: Int, val imageResId: Int) 
