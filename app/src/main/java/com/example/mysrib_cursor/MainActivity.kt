@@ -3,6 +3,7 @@ package com.example.mysrib_cursor
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.example.mysrib_cursor.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +26,12 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.navView.itemIconTintList = null
+        
+       window.setFlags(
+           WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+           WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+       )
 
         setSupportActionBar(binding.appBarMain.toolbar)
         supportActionBar?.apply {

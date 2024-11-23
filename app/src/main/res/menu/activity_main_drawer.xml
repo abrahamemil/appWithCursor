@@ -26,7 +26,7 @@
             android:title="Privacy Policy" />
         <item
             android:id="@+id/nav_feedback"
-            android:icon="@drawable/ic_feedback"
+            android:icon="@drawable/ic_feedback_black"
             android:title="Feedback" />
         <item
             android:id="@+id/nav_about"
