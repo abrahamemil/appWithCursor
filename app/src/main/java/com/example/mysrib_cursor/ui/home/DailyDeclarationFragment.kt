@@ -16,7 +16,9 @@ import com.example.mysrib_cursor.R
 import com.example.mysrib_cursor.databinding.FragmentDailyDeclarationBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 
 class DailyDeclarationFragment : Fragment() {
 
@@ -63,9 +65,15 @@ class DailyDeclarationFragment : Fragment() {
         binding.userName.text = viewModel.name
         binding.userGenId.text = viewModel.genId
         if (viewModel.workStatus.isNotEmpty()){
-            binding.llDaily.background = AppCompatResources.getDrawable(requireContext(),R.color.samsung_blue)
+            binding.llDaily.visibility = View.GONE
+            binding.llDailyDone.visibility = View.VISIBLE
             binding.radioYesBangalore.isChecked = viewModel.isInBangalore
             binding.radioYesSymptoms.isChecked = viewModel.haveAnySymptoms
+            binding.dailyDoneTime.text = viewModel.submitTime
+            binding.dailyDoneDate.text = viewModel.submitDate
+        }else{
+            binding.llDaily.visibility = View.VISIBLE
+            binding.llDailyDone.visibility = View.GONE
         }
         when (viewModel.workStatus) {
             "WFO" -> binding.radioWfo.isChecked = true
@@ -169,6 +177,10 @@ private fun saveDataToViewModel() {
         "Thursday" to getDayPlan(binding.rgDay4),
         "Friday" to getDayPlan(binding.rgDay5)
     )
+    val sdf = SimpleDateFormat("hh:mm")
+    val currentDate = sdf.format(Date())
+    viewModel.submitTime = currentDate
+    viewModel.submitDate = binding.dateTextView.text.toString()
 }
 
 private fun uploadFormData() {
@@ -185,7 +197,8 @@ private fun uploadFormData() {
         .addOnSuccessListener {
             Toast.makeText(requireContext(), "Form submitted successfully!", Toast.LENGTH_SHORT)
                 .show()
-            binding.llDaily.setBackgroundColor(resources.getColor(R.color.samsung_blue))
+//            binding.llDaily.setBackgroundColor(resources.getColor(R.color.samsung_blue))
+            populateFieldsFromViewModel()
         }
         .addOnFailureListener {
             Toast.makeText(requireContext(), "Failed to submit form.", Toast.LENGTH_SHORT).show()

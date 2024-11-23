@@ -76,19 +76,34 @@
                     android:contentDescription="@string/daily_declaration_header"
                     android:scaleType="fitCenter"
                     android:layout_marginBottom="8dp" />
-                <TextView
-                    android:id="@+id/daily_done_date"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="20dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="21 Nov 2024"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/daily_done_date"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="21 Nov 2024"/>
+                    <TextView
+                        android:id="@+id/daily_done_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:00 AM"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_marginBottom="16dp"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
+            <!-- Daily Time Text Field -->
+        </LinearLayout>
 
         <!-- User Information Section -->
         <androidx.cardview.widget.CardView
